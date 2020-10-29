@@ -5,7 +5,7 @@
   "author": "Peter Vu <p.vu@berkeley.edu>",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon --watch server"
+    "start": "nodemon server/server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
