@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'chart.js';
 import _ from 'underscore';
+import { GraphCanvas } from './StyledComponents.jsx';
 
 class App extends React.Component{
   constructor(props) {
@@ -21,13 +22,20 @@ class App extends React.Component{
       dateLabels.push(key);
       dataValues.push(value)
     })
+
+    console.log(dateLabels)
   
     const bitcoin = new Chart(context, {
       type: 'line',
-      datasets: [{
+      data: {
         labels: dateLabels,
-        data: dataValues,
-      }]
+        datasets: [{
+          label: "Bitcoin Price (USD)",
+          labels: dateLabels,
+          data: dataValues,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        }]
+      }
       
     })
   }
@@ -35,10 +43,12 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        This is a dynamic react app
-        <canvas id="bitcoin" width="500" height="500">
-  
-        </canvas>
+        <h1>
+          Bitcoin Pricing Index
+        </h1>
+        <GraphCanvas id="bitcoin" width="300px" height="300px">
+        </GraphCanvas>
+        powered by CoinDesk
       </div>
     )
   }

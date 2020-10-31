@@ -8,7 +8,7 @@ const init = async function initializeApp() {
   const initialData = await axios.get('http://127.0.0.1:3000/bitcoin');
   console.log(initialData.data.bpi);
 
-  ReactDOM.render(<App data={initialData}/>, document.getElementById('app'))
+  ReactDOM.render(<App data={initialData.data}/>, document.getElementById('app'))
 }
 
 init();
